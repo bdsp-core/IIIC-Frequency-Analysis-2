@@ -7,20 +7,23 @@ This repository uses EEG data from the Brain Data Science Platform (BDSP). The d
 ## Dataset Specifications
 
 ### EEG Files
-- **Total segments**: ~1,000+ segments
+- **Total segments**: 1,060 EEG files
+- **Total size**: ~283 MB
 - **Format**: MATLAB `.mat` files
 - **Duration**: 50 seconds per segment
 - **Sampling rate**: 200 Hz
 - **Channels**: 8 brain regions (bilateral frontal, temporal, central-parietal, occipital)
 - **Variable name**: `data` or `data_50sec` (19-channel array × time samples)
 
+**Complete file listing:** See [data_manifest.csv](data_manifest.csv) in the repository root for a complete list of all 1,072 files (1,060 EEG + 12 annotations) with sizes.
+
 ### File Organization
 ```
 data/dataset_eeg/
-├── gpd/      # ~298 files - Generalized Periodic Discharges
-├── lpd/      # ~271 files - Lateralized Periodic Discharges
-├── grda/     # ~287 files - Generalized Rhythmic Delta Activity
-└── lrda/     # ~212 files - Lateralized Rhythmic Delta Activity
+├── gpd/      # 296 files - Generalized Periodic Discharges
+├── lpd/      # 269 files - Lateralized Periodic Discharges
+├── grda/     # 285 files - Generalized Rhythmic Delta Activity
+└── lrda/     # 210 files - Lateralized Rhythmic Delta Activity
 ```
 
 ### Annotation Files
@@ -67,24 +70,31 @@ Each CSV file contains expert annotations with columns:
   - Citation requirements
 
 ### Step 3: Download via AWS S3
-Once approved (typically 1-2 business days), you will receive:
-- AWS S3 bucket access credentials
-- Access point URL
-- Download instructions
+Once approved (typically 1-2 business days), BDSP will add your AWS account to the bucket policy. You will receive:
+- Confirmation of access approval
+- S3 bucket location and instructions
 
-**Example download using AWS CLI** (after receiving credentials):
+**Dataset Location:**
+```
+s3://bdsp-opendata-projects/IIIC-Frequency-Analysis-2/data.zip
+```
+
+**Download using AWS CLI:**
 ```bash
 # Install AWS CLI if needed
 pip install awscli
 
-# Configure credentials (provided by BDSP)
+# Configure your AWS credentials (your own AWS account that BDSP approved)
 aws configure
 
-# Download the dataset
-aws s3 sync s3://[BUCKET-NAME]/IIIC-Frequency-Analysis/ ./data/ --region us-east-1
+# Download the dataset ZIP file
+aws s3 cp s3://bdsp-opendata-projects/IIIC-Frequency-Analysis-2/data.zip ./data.zip --region us-east-1
+
+# Extract to create data/ directory
+unzip data.zip
 ```
 
-**Expected download size**: ~10-15 GB
+**Expected download size**: ~283 MB (compressed)
 
 ### Step 4: Verify Data Structure
 After downloading, verify your directory structure matches:

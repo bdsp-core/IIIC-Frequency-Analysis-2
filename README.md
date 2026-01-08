@@ -77,11 +77,17 @@ The EEG dataset and expert annotations used in this study are available through 
 **To access the data:**
 1. Visit [bdsp.io](https://bdsp.io)
 2. Submit an access request through their portal
-3. Once approved, download the dataset via the AWS S3 access point provided
+3. Once approved, download the dataset ZIP file from AWS S3
+4. Extract the ZIP file to create the `data/` directory in your repository
+
+**Dataset Contents:**
+- **1,060 EEG files** (.mat format, ~283 MB total)
+- **12 annotation files** (CSV format with expert ratings)
+- See [data_manifest.csv](data_manifest.csv) for complete file listing
 
 **For detailed data access instructions, see [DATASET_INFO.md](DATASET_INFO.md)**
 
-**Dataset structure** (after download):
+**Dataset structure** (after extraction):
 ```
 data/
 ├── dataset_eeg/          # EEG recordings (50-second segments)
