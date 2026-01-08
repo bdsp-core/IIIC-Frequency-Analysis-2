@@ -323,8 +323,14 @@ If you use this code or data in your research, please cite:
 @article{tautan2025automated,
   title={Automated estimation of frequency and spatial extent of periodic and rhythmic epileptiform activity from continuous electroencephalography data},
   author={T{\u{a}}u{\c{t}}an, Alexandra-Maria and Jing, Jin and Basovic, Lara and Hadar, Parimala Nallappan and Sartipi, Sahar and Fernandes, Marcos Paulo and Kim, Jonathan and Struck, Aaron F and Westover, M Brandon and Zafar, Sahar F},
-  journal={[Journal Name]},
-  year={2025}
+  journal={Journal of Neural Engineering},
+  volume={22},
+  number={6},
+  year={2025},
+  month={dec},
+  doi={10.1088/1741-2552/ae2716},
+  pmid={41330044},
+  url={https://pubmed.ncbi.nlm.nih.gov/41330044/}
 }
 ```
 
